@@ -1,6 +1,4 @@
 #coding utf-8
-#البداية
-#هدا الفقرة متخصصة بمعلومات الموقع
 #-----------------------------------------------------------------------------
 from datetime import datetime
 import time
@@ -26,7 +24,7 @@ if b and e in TARGET:
                 time.sleep(2)
                 print ("\tsite ---------------------->\t" , TARGET)
 else:
-                print ("""\tأنت تجعلني مجنونا حاول مرة أخرى\t""")
+                print ("""\tdon't make me crazy \t""")
                 TARGET.close()
                 
 #socket
