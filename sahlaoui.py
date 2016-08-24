@@ -1,42 +1,24 @@
-#coding utf-8
-#-----------------------------------------------------------------------------
 from datetime import datetime
 import time
 import socket
 import whois
 import sys
 import random
-#-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-def sahlaoui():
-    print (""" \t
-                     |---------------------------------------------------------------|
-                     |              pirimipirimi[@]gmail[dot]com                     |
-                     |               08/2016      zipscan v0.0                       |
-                     |                  فلسطين ليست للبيع                            |
-                     |---------------------------------------------------------------- \t""" )
-sahlaoui1= sahlaoui()
 
-TARGET =input("\t entre le site (like :www.google.com ): \t")
-b="."
-e="www"
-if b and e in TARGET:
-                print ("\t****************information de site *******************\t")
-                time.sleep(2)
-                print ("\tsite ---------------------->\t" , TARGET)
-else:
-                print ("""\tdon't make me crazy \t""")
-                TARGET.close()
-                
+Target =raw_input("\t entre le site (like :www.google.com ): \t")
+if "://" in Target :
+    Host = Target.replace('http://','')
+    Host = Target.replace('https://','')
 #socket
 
-#جلب إبي
-c = socket.gethostbyname(TARGET)
-print ("\tIP -------------------------> {}\t".format(c))
+ip_host= socket.gethostbyname(Host)
+
+print ("\tIP -------------------------> {}\t".format(ip_host))
 #اسم الجهاز
-d = socket.gethostname()
-print ("\thostname -------------------------> {}\t".format(d))
+Srv_name = socket.gethostname()
+print ("\thostname -------------------------> {}\t".format(Srv_Name))
 #whois
-e = whois.whois(TARGET)
+Who_site = whois.whois(Target)
 print ("\temails --------------------------> {}\t".format(e.get("\temails\t")))
 print ("\t name ----------------------------> {}\t".format(e.get("\tname\t")))
 print ("\t domain_name ---------------------> {}\t".format(e.get("\tdomain_name\t")))
@@ -60,9 +42,9 @@ T1=  datetime.now()
 try:
     for port in range(PORT_FER,PORT_SEG):
          sock=socket.socket(socket.AF_INET , socket.SOCK_STREAM)
-         res=sock.connect_ex(TARGET , port)
+         res=sock.connect_ex(Target , port)
          if res==0:
-           print ("\t port open  \t" , port ,"\t---\t" ,TARGET)
+           print ("\t port open  \t" , port ,"\t---\t" ,Target)
            sys.exit()
 except :
            print ("\tsorry we have problem with your site\t")
